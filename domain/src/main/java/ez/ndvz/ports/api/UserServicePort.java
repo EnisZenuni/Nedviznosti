@@ -2,14 +2,16 @@ package ez.ndvz.ports.api;
 
 import ez.ndvz.core.domain.models.User;
 
+import java.util.Optional;
+
 public interface UserServicePort {
 
     User find(User user);
     User findUserById(Long userId);
 
-    User signUp(User user);
+    Optional<User> findApplicationUserByName(String username);
 
-    User signIn(User user);
+    Optional<User> findApplicationUserByEmail(String email);
 
     void delete(Long id);
 

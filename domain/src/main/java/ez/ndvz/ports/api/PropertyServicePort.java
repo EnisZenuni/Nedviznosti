@@ -2,6 +2,7 @@ package ez.ndvz.ports.api;
 
 import ez.ndvz.core.domain.models.Apartment;
 import ez.ndvz.core.domain.models.House;
+import ez.ndvz.core.domain.models.Image;
 import ez.ndvz.core.domain.models.Property;
 
 import java.util.Date;
@@ -25,6 +26,9 @@ public interface PropertyServicePort {
     List<Property> filterPropertiesByYearBuilt(Date yearBuilt);
 
     List<Property> filterPropertyByAgency(Long agencyId);
+
+    void addImageToProperty(Image image);
+    void addImagesToProperty(List<Image> imageList);
 
     void delete(Long id);
 }

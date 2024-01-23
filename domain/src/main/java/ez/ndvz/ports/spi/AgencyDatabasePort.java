@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AgencyDatabasePort {
-    Agency findById(Long agencyId);
+    Agency exist(Long id);
 
-    Optional<Agency> find(Agency agency);
+    Agency find(Agency agency);
+    Optional<Agency> findById(Long id);
 
     //TODO add Page -> Pagination in backend
     Agency create(Agency agency);
@@ -18,9 +19,8 @@ public interface AgencyDatabasePort {
 
     List<Agency> findAllAgencies();
 
-    Double calculateRatings(List<Double> ratings);
 
     void delete(Long id);
 
-    Property addProperty(Agency agency, Property property);
+    Property addPropertyToAgency(Agency agency, Property property);
 }

@@ -1,3 +1,5 @@
 rootProject.name = 'Nedviznosti'
 
 include('domain')
+include('infrastructure:persistance')
+include('infrastructure:authentication')

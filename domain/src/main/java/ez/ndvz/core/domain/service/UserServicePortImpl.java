@@ -4,6 +4,8 @@ import ez.ndvz.core.domain.models.User;
 import ez.ndvz.ports.api.UserServicePort;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServicePortImpl implements UserServicePort {
     @Override
@@ -17,14 +19,15 @@ public class UserServicePortImpl implements UserServicePort {
     }
 
     @Override
-    public User signUp(User user) {
-        return null;
+    public Optional<User> findApplicationUserByName(String username) {
+        return Optional.empty();
     }
 
     @Override
-    public User signIn(User user) {
-        return null;
+    public Optional<User> findApplicationUserByEmail(String email) {
+        return Optional.empty();
     }
+
 
     @Override
     public void delete(Long id) {

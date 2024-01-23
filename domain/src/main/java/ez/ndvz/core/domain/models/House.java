@@ -1,7 +1,5 @@
 package ez.ndvz.core.domain.models;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -13,15 +11,8 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 public class House extends Property {
 
-    private Long houseId;
+    private Long id;
 
-    @NonNull
-    @NotBlank
     private Integer numberOfFloors;
 
-    @Positive
-    private double price;
-
-    @Positive
-    private double rentalPrice;
 }

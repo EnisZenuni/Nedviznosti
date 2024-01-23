@@ -1,6 +1,5 @@
 package ez.ndvz.core.domain.models;
 
-import jakarta.validation.constraints.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,15 +10,9 @@ import lombok.experimental.SuperBuilder;
 @Data
 public class Apartment extends Property {
 
-    private Long apartmendId;
-    @NotBlank
-    @NonNull
-    @PositiveOrZero
+    private Long id;
+
     private Integer floor;
 
-    @Positive
-    private double price;
 
-    @Positive
-    private double rentalPrice;
 }
