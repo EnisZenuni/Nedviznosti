@@ -1,18 +1,20 @@
 package ez.ndvz.ports.spi;
 
+import ez.ndvz.core.domain.models.Property;
 import ez.ndvz.core.domain.models.User;
 
 import java.util.Optional;
 
 public interface UserDatabasePort {
+    User exist(Long id);
 
-    Optional<User> find(User user);
+    User find(User user);
 
-    User findUserById(Long userId);
+    Optional<User>findUserById(Long userId);
 
-    User signUp(User user);
+    Optional<User> findApplicationUserByName(String username);
 
-    User signIn(User user);
+    Optional<User> findApplicationUserByEmail(String email);
 
     void delete(Long id);
 }

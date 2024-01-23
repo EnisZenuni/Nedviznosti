@@ -3,14 +3,15 @@ package ez.ndvz.ports.spi;
 import ez.ndvz.core.domain.models.Apartment;
 import ez.ndvz.core.domain.models.House;
 
-import java.util.Date;
+import java.time.Year;
 import java.util.List;
 import java.util.Optional;
 
 public interface ApartmentDatabasePort {
-    Apartment findById(Long apartmentId);
+    Apartment exist(Long id);
 
-    Optional<Apartment> find(Apartment apartment);
+    Apartment find(Apartment apartment);
+    Optional<Apartment> findById(Long id);
 
     //TODO add Page -> Pagination in backend
     Apartment create(Apartment apartment); //TODO add one with (User user ,Apartment apartment)
@@ -21,11 +22,11 @@ public interface ApartmentDatabasePort {
 
     List<Apartment> findAllApartmentsByCity(String city);
 
-    List<House> filterApartmentsByPrice(Double price);
+    List<Apartment> filterApartmentsByPrice(Double price);
 
-    List<House> filterApartmentsByYearBuilt(Date yearBuilt);
+    List<Apartment> filterApartmentsByYearBuilt(Year yearBuilt);
 
-    List<House> filterApartmentsByAgency(Long agencyId);
+    List<Apartment> filterApartmentsByAgency(String agencyName);
 
     void delete(Long id);
 }
