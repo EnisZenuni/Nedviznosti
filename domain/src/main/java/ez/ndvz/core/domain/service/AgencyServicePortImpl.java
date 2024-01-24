@@ -3,15 +3,22 @@ package ez.ndvz.core.domain.service;
 import ez.ndvz.core.domain.models.Agency;
 import ez.ndvz.core.domain.models.Property;
 import ez.ndvz.ports.api.AgencyServicePort;
+import ez.ndvz.ports.spi.AgencyDatabasePort;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AgencyServicePortImpl implements AgencyServicePort {
+
+    private final AgencyDatabasePort agencyDatabasePort;
+
     @Override
-    public Agency findById(Long agencyId) {
-        return null;
+    public Optional<Agency> findById(Long agencyId) {
+        return agencyDatabasePort.findById(agencyId);
     }
 
     @Override
@@ -21,31 +28,34 @@ public class AgencyServicePortImpl implements AgencyServicePort {
 
     @Override
     public Agency create(Agency agency) {
-        return null;
+        return agencyDatabasePort.create(agency);
     }
 
     @Override
     public Agency update(Long agencyId, Agency agency) {
-        return null;
+        return agencyDatabasePort.update(agencyId, agency);
     }
 
     @Override
     public List<Agency> findAllAgencies() {
-        return null;
+        return agencyDatabasePort.findAllAgencies();
     }
 
     @Override
     public Double calculateRatings(List<Double> ratings) {
-        return null;
+        return ratings.stream()
+                .mapToDouble(Double::doubleValue)
+                .average()
+                .orElse(1.0);
     }
 
     @Override
     public void delete(Long id) {
-
+        agencyDatabasePort.delete(id);
     }
 
     @Override
     public Property addProperty(Agency agency, Property property) {
-        return null;
+        return agencyDatabasePort.addPropertyToAgency(agency,property);
     }
 }

@@ -35,15 +35,15 @@ public class PropertyDatabaseAdapter implements PropertyDatabasePort {
     }
 
     @Override
-    public Property findById(Property property) {
-        return null;
+    public Optional<Property> findById(Long propertyId) {
+        return Optional.of(exist(propertyId));
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public Optional<Property> find(Long id) {
-        return Optional.of(exist(id));
+    public Property find(Long id) {
+        return null;
     }
+
 
     @Override
     @Transactional

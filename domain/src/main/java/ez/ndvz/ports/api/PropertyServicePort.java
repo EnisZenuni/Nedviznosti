@@ -5,11 +5,13 @@ import ez.ndvz.core.domain.models.House;
 import ez.ndvz.core.domain.models.Image;
 import ez.ndvz.core.domain.models.Property;
 
+import java.time.Year;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface PropertyServicePort {
-    Property findById(Long propertyId);
+    Optional<Property> findById(Long propertyId);
 
     Property find(Property property);
 
@@ -23,9 +25,9 @@ public interface PropertyServicePort {
     List<Property> findAllPropertiesByCity(String city);
     List<Property> filterPropertiesByPrice(Double price);
 
-    List<Property> filterPropertiesByYearBuilt(Date yearBuilt);
+    List<Property> filterPropertiesByYearBuilt(Year yearBuilt);
 
-    List<Property> filterPropertyByAgency(Long agencyId);
+    List<Property> filterPropertiesByAgency(String agencyName);
 
     void addImageToProperty(Image image);
     void addImagesToProperty(List<Image> imageList);

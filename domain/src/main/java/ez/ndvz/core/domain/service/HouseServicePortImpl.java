@@ -2,16 +2,23 @@ package ez.ndvz.core.domain.service;
 
 import ez.ndvz.core.domain.models.House;
 import ez.ndvz.ports.api.HouseServicePort;
+import ez.ndvz.ports.spi.HouseDatabasePort;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.Year;
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class HouseServicePortImpl implements HouseServicePort {
+
+    private final HouseDatabasePort houseDatabasePort;
+
     @Override
-    public House findById(Long houseId) {
-        return null;
+    public Optional<House> findById(Long houseId) {
+        return houseDatabasePort.findById(houseId);
     }
 
     @Override
@@ -21,41 +28,41 @@ public class HouseServicePortImpl implements HouseServicePort {
 
     @Override
     public House create(House house) {
-        return null;
+        return houseDatabasePort.create(house);
     }
 
     @Override
     public House update(Long houseId, House house) {
-        return null;
+        return houseDatabasePort.update(houseId, house);
     }
 
     @Override
     public List<House> findAllHouses() {
-        return null;
+        return houseDatabasePort.findAllHouses();
     }
 
     @Override
     public List<House> findAllHousesByCity(String city) {
-        return null;
+        return houseDatabasePort.findAllHousesByCity(city);
     }
 
     @Override
     public List<House> filterHousesByPrice(Double price) {
-        return null;
+        return houseDatabasePort.filterHousesByPrice(price);
     }
 
     @Override
-    public List<House> filterHousesByYearBuilt(Date yearBuilt) {
-        return null;
+    public List<House> filterHousesByYearBuilt(Year yearBuilt) {
+        return houseDatabasePort.filterHousesByYearBuilt(yearBuilt);
     }
 
     @Override
-    public List<House> filterHousesByAgency(Long agencyId) {
-        return null;
+    public List<House> filterHousesByAgency(String agencyName) {
+        return houseDatabasePort.filterHousesByAgency(agencyName);
     }
 
     @Override
     public void delete(Long id) {
-
+        houseDatabasePort.delete(id);
     }
 }
