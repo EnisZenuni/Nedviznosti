@@ -1,6 +1,5 @@
 package ez.ndvz.ports.spi;
 
-import ez.ndvz.core.domain.models.Property;
 import ez.ndvz.core.domain.models.User;
 
 import java.util.Optional;
