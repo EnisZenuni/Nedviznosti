@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AgencyServicePort {
-    Agency findById(Long agencyId);
+    Optional<Agency> findById(Long agencyId);
 
     Agency find(Agency agency);
 

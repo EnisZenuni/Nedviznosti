@@ -4,11 +4,13 @@ import ez.ndvz.core.domain.models.Agency;
 import ez.ndvz.core.domain.models.Apartment;
 import ez.ndvz.core.domain.models.House;
 
+import java.time.Year;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface HouseServicePort {
-    House findById(Long houseId);
+    Optional<House> findById(Long houseId);
 
     House find(House house);
 
@@ -23,9 +25,9 @@ public interface HouseServicePort {
 
     List<House> filterHousesByPrice(Double price);
 
-    List<House> filterHousesByYearBuilt(Date yearBuilt);
+    List<House> filterHousesByYearBuilt(Year yearBuilt);
 
-    List<House> filterHousesByAgency(Long agencyId);
+    List<House> filterHousesByAgency(String agencyName);
 
     void delete(Long id);
 }

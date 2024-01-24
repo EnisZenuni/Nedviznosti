@@ -12,9 +12,9 @@ public interface PropertyDatabasePort {
 
     Property exist(Long id);
 
-    Property findById(Property property);
+    Optional<Property> findById(Long propertyId);
 
-    Optional<Property> find(Long id);
+    Property find(Long id);
     //TODO add Page -> Pagination in backend
     Property create(Property property); //TODO add one with (User user ,Apartment apartment)
 
