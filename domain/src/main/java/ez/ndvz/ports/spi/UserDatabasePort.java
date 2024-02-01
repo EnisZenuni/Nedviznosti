@@ -1,6 +1,7 @@
 package ez.ndvz.ports.spi;
 
 import ez.ndvz.core.domain.models.User;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 

@@ -4,9 +4,9 @@ import ez.ndvz.core.domain.models.User;
 import ez.ndvz.ports.api.UserServicePort;
 import ez.ndvz.ports.spi.UserDatabasePort;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service
@@ -14,6 +14,7 @@ import java.util.Optional;
 public class UserServicePortImpl implements UserServicePort {
 
     private final UserDatabasePort userDatabasePort;
+
     @Override
     public User find(User user) {
         return null;
