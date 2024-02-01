@@ -5,14 +5,11 @@ import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-@Getter
-@Setter
 @Data
 public class Apartment extends Property {
 
-    private Long id;
+    private Long houseId;
 
     private Integer floor;
-
 
 }

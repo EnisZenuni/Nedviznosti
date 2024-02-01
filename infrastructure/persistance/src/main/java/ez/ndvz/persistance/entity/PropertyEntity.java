@@ -8,13 +8,18 @@ import ez.ndvz.persistance.enumerations.Heating;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.Year;
 import java.util.Date;
 import java.util.List;
 
 
-//TODO change to MappedSuperClass if we dont to use inheritnce type single table but then we wont have a discriminator to differentiate what kind of property we want to persist
+//TODO change to MappedSu
+// perClass if we dont to use inheritnce type single table
+// but then we wont have a discriminator to differentiate what kind of property we want to persist
+
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

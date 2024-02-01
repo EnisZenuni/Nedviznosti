@@ -3,3 +3,4 @@ rootProject.name = 'Nedviznosti'
 include('domain','application')
 include('infrastructure:persistance')
 include('infrastructure:authentication')
+include('postgres-launcher')

@@ -6,14 +6,15 @@ import ez.ndvz.core.domain.enumeration.EnergySource;
 import ez.ndvz.core.domain.enumeration.FlooringType;
 import ez.ndvz.core.domain.enumeration.Heating;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.Year;
 import java.util.List;
 
-@AllArgsConstructor
-@Builder
+@SuperBuilder
 @Setter
 @Getter
+@AllArgsConstructor
 public abstract class Property {
 
     private String id;
@@ -44,4 +45,5 @@ public abstract class Property {
     private double price;
 
     private double rentalPrice;
+
 }

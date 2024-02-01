@@ -15,10 +15,9 @@ import javax.swing.text.html.Option;
 import java.text.MessageFormat;
 import java.util.Optional;
 
-
-@Service
-@RequiredArgsConstructor
 @Primary
+@Component
+@RequiredArgsConstructor
 public class UserDatabaseAdapter implements UserDatabasePort {
 
     private final UserRepository userRepository;

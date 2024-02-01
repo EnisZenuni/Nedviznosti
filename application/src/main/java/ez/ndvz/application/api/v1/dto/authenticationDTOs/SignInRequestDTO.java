@@ -1,4 +1,4 @@
-package ez.ndvz.application.api.v1.dto;
+package ez.ndvz.application.api.v1.dto.authenticationDTOs;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
