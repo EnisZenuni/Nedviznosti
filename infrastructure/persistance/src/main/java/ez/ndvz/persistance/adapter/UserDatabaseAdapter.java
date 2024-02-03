@@ -6,17 +6,14 @@ import ez.ndvz.persistance.mapper.UserMapper;
 import ez.ndvz.persistance.repository.UserRepository;
 import ez.ndvz.ports.spi.UserDatabasePort;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.swing.text.html.Option;
 import java.text.MessageFormat;
 import java.util.Optional;
 
-@Primary
-@Component
+@Service
 @RequiredArgsConstructor
 public class UserDatabaseAdapter implements UserDatabasePort {
 

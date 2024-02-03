@@ -5,9 +5,11 @@ import ez.ndvz.persistance.entity.UserEntity;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
-@Mapper
+@Mapper(componentModel = "spring")
 @Component
 public interface UserMapper {
+
     User toDomain(UserEntity userEntity);
     UserEntity toEntity(User user);
+
 }
