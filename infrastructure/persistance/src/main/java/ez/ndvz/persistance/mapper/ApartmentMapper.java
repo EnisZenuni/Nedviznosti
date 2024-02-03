@@ -5,7 +5,7 @@ import ez.ndvz.persistance.entity.ApartmentEntity;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
-@Mapper
+@Mapper(componentModel = "spring")
 @Component
 public interface ApartmentMapper {
     Apartment toDomain(ApartmentEntity apartmentEntity);

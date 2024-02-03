@@ -1,11 +1,11 @@
-package ez.ndvz.persistance.enumerations;
+package ez.ndvz.persistance.mapper;
 
 import ez.ndvz.core.domain.models.House;
 import ez.ndvz.persistance.entity.HouseEntity;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
-@Mapper
+@Mapper(componentModel = "spring")
 @Component
 public interface HouseMapper {
     House toDomain(HouseEntity houseEntity);

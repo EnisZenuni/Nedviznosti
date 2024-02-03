@@ -3,7 +3,7 @@ package ez.ndvz.persistance.adapter;
 import ez.ndvz.core.domain.models.House;
 import ez.ndvz.core.exceptions.ResourceNotFoundException;
 import ez.ndvz.persistance.entity.HouseEntity;
-import ez.ndvz.persistance.enumerations.HouseMapper;
+import ez.ndvz.persistance.mapper.HouseMapper;
 import ez.ndvz.persistance.repository.HouseRepository;
 import ez.ndvz.ports.spi.HouseDatabasePort;
 import lombok.RequiredArgsConstructor;
