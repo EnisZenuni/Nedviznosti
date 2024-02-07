@@ -10,9 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 //@ComponentScan({"ez.ndvz","ez.ndvz.persistance"})
 //@EnableConfigurationProperties(ApplicationPersistance.class)
-@ComponentScan(basePackages = {"ez.ndvz","ez.ndvz.persistance","ez.ndvz.persistance.adapter"})
-@EntityScan(basePackages = {"ez.ndvz.persistance"})
-
+@ComponentScan(basePackages = {"ez.ndvz","ez.ndvz.persistance","ez.ndvz.persistance.adapter","ez.ndvz.persistance.entity"})
+@EntityScan(basePackages = {"ez.ndvz.persistance.entity"})
 public class Application {
 
     public static void main(String[] args) {
