@@ -3,18 +3,16 @@ spring:
     url: jdbc:postgresql://localhost:5432/nedviznosti
     username: postgres
     password: admin
-    driver-class-name: org.postgresql.Driver
-    jpa:
-      database: POSTGRESQL
-      show-sql: true
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
       hibernate:
-        ddl-auto: update
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
-
-        logging:
-          level:
-            org.hibernate.SQL: DEBUG
-            org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
