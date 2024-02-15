@@ -20,6 +20,11 @@ public class UserDatabaseAdapter implements UserDatabasePort {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
+    @Override
+    public User create(User user) {
+        return userMapper.toDomain(userRepository.save(userMapper.toEntity(user)));
+    }
+
     @Transactional(readOnly = true)
     @Override
     public User exist(Long id) {
@@ -49,7 +54,6 @@ public class UserDatabaseAdapter implements UserDatabasePort {
     public Optional<User> findApplicationUserByEmail(String email) {
         var user = userRepository.findApplicationUserByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid email or password."));
-
 
         return Optional.of(userMapper.toDomain(user));
     }

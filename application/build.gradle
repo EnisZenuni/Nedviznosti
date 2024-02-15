@@ -18,14 +18,21 @@ repositories {
 dependencies {
     implementation project(':domain')
     implementation project(':infrastructure:persistance')
+    implementation project(':infrastructure:authentication')
 
+    implementation 'org.projectlombok:lombok:1.18.28'
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
     implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.projectlombok:lombok:1.18.28'
+
+    compileOnly 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 }
 
 tasks.named('test') {

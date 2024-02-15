@@ -6,8 +6,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-@Value
-@AllArgsConstructor
+@Data
 @Builder
 public class SignUpRequestDTO {
 
@@ -34,4 +33,3 @@ public class SignUpRequestDTO {
     @Size(min = 6)
     String password;
 }
-

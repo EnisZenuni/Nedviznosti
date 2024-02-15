@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 @Mapper(componentModel = "spring")
 @Component
 public interface UserMapper {
-
     User toDomain(UserEntity userEntity);
     UserEntity toEntity(User user);
-
 }
