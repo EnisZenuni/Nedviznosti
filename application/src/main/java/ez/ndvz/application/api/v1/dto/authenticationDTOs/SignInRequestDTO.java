@@ -2,11 +2,11 @@ package ez.ndvz.application.api.v1.dto.authenticationDTOs;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 
 @AllArgsConstructor
 @Builder
-@Value
+@Data
 public class SignInRequestDTO {
     String email;
     String password;

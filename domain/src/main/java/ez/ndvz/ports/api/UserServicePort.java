@@ -6,7 +6,10 @@ import java.util.Optional;
 
 public interface UserServicePort {
 
+    User create(User user);
+
     User find(User user);
+
     Optional<User> findUserById(Long userId);
 
     Optional<User> findApplicationUserByName(String username);

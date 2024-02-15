@@ -16,6 +16,11 @@ public class UserServicePortImpl implements UserServicePort {
     private final UserDatabasePort userDatabasePort;
 
     @Override
+    public User create(User user) {
+        return userDatabasePort.create(user);
+    }
+
+    @Override
     public User find(User user) {
         return null;
     }
