@@ -8,10 +8,8 @@ import ez.ndvz.persistance.enumerations.Heating;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 import java.time.Year;
-import java.util.Date;
 import java.util.List;
 
 
@@ -75,7 +73,7 @@ public abstract class PropertyEntity extends BaseEntity {
     private AgencyEntity agency;
 
     @OneToMany(mappedBy = "property", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PropertyImage> images;
+    private List<PropertyImageEntity> images;
 
     @Positive
     private double price;
