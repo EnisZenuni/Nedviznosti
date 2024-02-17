@@ -7,6 +7,8 @@ import java.util.List;
 public interface ImageServicePort {
     Image create(Image image);
     Image delete(Long imageId);
-    List<Image> findAll(Long propertyId);
-
+    String upload(byte[] image);
+    byte[] retrieve(String filepath);
+    List<Image> findAllImagesbyProperty(Long propertyId);
+    List<Image> findAllImages();
 }

@@ -4,9 +4,12 @@ import ez.ndvz.core.domain.models.Image;
 
 import java.util.List;
 
+
 public interface ImageDatabasePort {
         Image create(Image image);
-        Image delete(Long imageId);
-        List<Image> findAll(Long propertyId);
-
+        void delete(Long imageId);
+        String upload(byte[] image);
+        byte[] retrieve(String filepath);
+        List<Image> findAllImagesByProperty(Long propertyId);
+        List<Image> findAllImages();
 }
