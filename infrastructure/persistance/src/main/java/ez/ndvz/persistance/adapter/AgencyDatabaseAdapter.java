@@ -11,7 +11,6 @@ import ez.ndvz.persistance.repository.AgencyRepository;
 import ez.ndvz.persistance.repository.PropertyRepository;
 import ez.ndvz.ports.spi.AgencyDatabasePort;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,9 +57,9 @@ public class AgencyDatabaseAdapter implements AgencyDatabasePort {
     @Transactional
     @Override
     public Agency update(Long agencyId, Agency agency) {
-        var agencyUpdate = exist(agencyId);
-        BeanUtils.copyProperties(agency, agencyUpdate, "id");
-        return agencyMapper.toDomain(agencyRepository.save(agencyMapper.toEntity(agency)));
+        var agencyEntityToUpdate = agencyMapper.toEntity(agency);
+        agencyEntityToUpdate.setId(agencyId);
+        return agencyMapper.toDomain(agencyRepository.save(agencyEntityToUpdate));
     }
 
     @Transactional(readOnly = true)

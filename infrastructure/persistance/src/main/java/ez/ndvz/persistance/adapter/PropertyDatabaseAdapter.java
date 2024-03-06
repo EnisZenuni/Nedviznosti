@@ -2,19 +2,16 @@ package ez.ndvz.persistance.adapter;
 
 import ez.ndvz.core.domain.models.Property;
 import ez.ndvz.core.exceptions.ResourceNotFoundException;
-import ez.ndvz.persistance.entity.AgencyEntity;
 import ez.ndvz.persistance.entity.PropertyEntity;
 import ez.ndvz.persistance.mapper.PropertyMapper;
 import ez.ndvz.persistance.repository.PropertyRepository;
 import ez.ndvz.ports.spi.PropertyDatabasePort;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.MessageFormat;
 import java.time.Year;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -35,6 +32,7 @@ public class PropertyDatabaseAdapter implements PropertyDatabasePort {
     }
 
     @Override
+    @Transactional
     public Optional<Property> findById(Long propertyId) {
         return Optional.of(exist(propertyId));
     }
@@ -54,9 +52,9 @@ public class PropertyDatabaseAdapter implements PropertyDatabasePort {
     @Override
     @Transactional
     public Property update(Long propertyId, Property property) {
-        var propertyUpdate = exist(propertyId);
-        BeanUtils.copyProperties(property, propertyUpdate, "id");
-        return propertyMapper.toDomain(propertyRepository.save(propertyMapper.toEntity(property)));
+        var propertyEntityToUpdate = propertyMapper.toEntity(property);
+        propertyEntityToUpdate.setId(propertyId);
+        return propertyMapper.toDomain(propertyRepository.save(propertyEntityToUpdate));
     }
 
     @Override
@@ -73,7 +71,7 @@ public class PropertyDatabaseAdapter implements PropertyDatabasePort {
     public List<Property> findAllPropertiesByCity(String city) {
         List<PropertyEntity> propertyEntities = propertyRepository.findAll();
         return propertyEntities.stream()
-                .filter(propertyEntity->propertyEntity.getAddress().equalsIgnoreCase(city)) //TODO add city
+                .filter(propertyEntity->propertyEntity.getAddress().contains(city)) //TODO add city
                 .map(propertyMapper::toDomain)
                 .collect(Collectors.toList());
     }
