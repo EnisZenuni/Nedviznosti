@@ -1,10 +1,8 @@
 package ez.ndvz.ports.spi;
 
-import ez.ndvz.core.domain.models.Agency;
 import ez.ndvz.core.domain.models.Property;
 
 import java.time.Year;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +13,7 @@ public interface PropertyDatabasePort {
     Optional<Property> findById(Long propertyId);
 
     Property find(Long id);
+
     //TODO add Page -> Pagination in backend
     Property create(Property property); //TODO add one with (User user ,Apartment apartment)
 

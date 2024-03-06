@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 @Mapper(componentModel = "spring")
 @Component
 public interface PropertyMapper {
-    //Property toDomain(PropertyEntity source);
-
     ApartmentMapper APARTMENT_MAPPER = Mappers.getMapper(ApartmentMapper.class);
     HouseMapper HOUSE_MAPPER = Mappers.getMapper(HouseMapper.class);
 

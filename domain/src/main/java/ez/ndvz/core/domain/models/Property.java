@@ -1,10 +1,7 @@
 package ez.ndvz.core.domain.models;
 
 
-import ez.ndvz.core.domain.enumeration.Details;
-import ez.ndvz.core.domain.enumeration.EnergySource;
-import ez.ndvz.core.domain.enumeration.FlooringType;
-import ez.ndvz.core.domain.enumeration.Heating;
+import ez.ndvz.core.domain.enumeration.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -33,6 +30,7 @@ public abstract class Property {
 
     private Heating heatingType;
 
+    private Integer numberOfFloors;
 
     private EnergySource energySource;
 
@@ -42,8 +40,9 @@ public abstract class Property {
 
     List<Image> imageList;
 
-    private double price;
+    private Double price;
 
-    private double rentalPrice;
+    private Double rentalPrice;
 
+    private PropertyType propertyType;
 }

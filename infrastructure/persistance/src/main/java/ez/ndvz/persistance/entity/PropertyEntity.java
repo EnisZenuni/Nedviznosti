@@ -34,9 +34,12 @@ public abstract class PropertyEntity extends BaseEntity {
     @NotBlank(message = "Please provide a detailed description")
     private String description;
 
-
     private Year yearBuilt;
 
+    @NotNull
+    @NotBlank(message = "Please insert number of floor or floor number")
+    @Min(0)
+    private Integer floor;
 
     @NotNull
     @NotBlank(message = "Please Insert size in km")
@@ -72,7 +75,9 @@ public abstract class PropertyEntity extends BaseEntity {
     @ManyToOne
     private AgencyEntity agency;
 
-    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL, orphanRemoval = true)
+    //TODO -> I am getting an issue when using the update method from the PropertyMapper
+    //TODO -> for that provide an update function to the Image Class.
+    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
     private List<PropertyImageEntity> images;
 
     @Positive

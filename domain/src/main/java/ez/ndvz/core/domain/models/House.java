@@ -8,9 +8,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Data
 public class House extends Property {
-
     private Long houseId;
-
-    private Integer numberOfFloors;
-
 }
