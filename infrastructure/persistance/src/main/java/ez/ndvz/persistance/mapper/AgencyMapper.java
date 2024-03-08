@@ -10,6 +10,7 @@ import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,9 +32,12 @@ public interface AgencyMapper {
                 .map(PROPERTY_MAPPER::toDomain)
                 .collect(Collectors.toList());
     }
-
+    //TODO I had to add the null check for propertyListings since the iniatization at AgencyEntity as a new arrayList wasnt working find out why
     @Named("toEntityList")
     default List<PropertyEntity> toEntityList(List<Property> propertyListings) {
+        if (propertyListings == null) {
+            return new ArrayList<>();
+        }
         return propertyListings.stream()
                 .map(PROPERTY_MAPPER::toEntity)
                 .collect(Collectors.toList());

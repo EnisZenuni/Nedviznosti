@@ -72,7 +72,7 @@ public abstract class PropertyEntity extends BaseEntity {
     @Column(name = "details")
     List<Details> detailsList;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private AgencyEntity agency;
 
     //TODO -> I am getting an issue when using the update method from the PropertyMapper

@@ -14,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,7 +31,7 @@ public class AgencyDatabaseAdapter implements AgencyDatabasePort {
     @Override
     public Agency exist(Long id) {
         var agencyEntity = agencyRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(MessageFormat.format("Agency with code {0} not found", id)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Agency with id %d not found", id)));
         return agencyMapper.toDomain(agencyEntity);
     }
 
@@ -47,7 +46,6 @@ public class AgencyDatabaseAdapter implements AgencyDatabasePort {
     public Agency find(Agency agency) {
         return null;
     }
-
 
     @Override
     public Agency create(Agency agency) {
@@ -71,7 +69,6 @@ public class AgencyDatabaseAdapter implements AgencyDatabasePort {
                 .collect(Collectors.toList());
     }
 
-
     @Transactional
     @Override
     public void delete(Long id) {
@@ -81,19 +78,16 @@ public class AgencyDatabaseAdapter implements AgencyDatabasePort {
 
     @Transactional
     @Override
-    public Property addPropertyToAgency(Agency agency, Property property) {
-        var agencyDomain = exist(agency.getId());
-        AgencyEntity agencyEntity = agencyMapper.toEntity(agencyDomain);
+    public Property addPropertyToAgency(Long agencyId, Property property) {
+        AgencyEntity agencyEntity = agencyRepository.findById(agencyId)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Agency with id %d not found", agencyId)));
 
         PropertyEntity propertyEntity = propertyMapper.toEntity(property);
         propertyEntity.setAgency(agencyEntity);
         propertyRepository.save(propertyEntity);
 
         agencyEntity.getPropertyListings().add(propertyEntity);
-        agencyRepository.save(agencyEntity);
-
 
         return propertyMapper.toDomain(propertyEntity);
-
     }
 }

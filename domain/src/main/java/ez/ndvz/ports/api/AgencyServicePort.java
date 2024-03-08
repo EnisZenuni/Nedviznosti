@@ -12,16 +12,13 @@ public interface AgencyServicePort {
 
     Agency find(Agency agency);
 
-    //TODO add Page -> Pagination in backend
     Agency create(Agency agency);
 
     Agency update(Long agencyId, Agency agency);
 
     List<Agency> findAllAgencies();
 
-    Double calculateRatings(List<Double> ratings);
-
     void delete(Long id);
 
-    Property addProperty(Agency agency, Property property);
+    Property addProperty(Long agencyId, Property property);
 }

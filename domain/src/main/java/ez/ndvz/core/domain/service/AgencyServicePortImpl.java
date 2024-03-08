@@ -42,20 +42,12 @@ public class AgencyServicePortImpl implements AgencyServicePort {
     }
 
     @Override
-    public Double calculateRatings(List<Double> ratings) {
-        return ratings.stream()
-                .mapToDouble(Double::doubleValue)
-                .average()
-                .orElse(1.0);
-    }
-
-    @Override
     public void delete(Long id) {
         agencyDatabasePort.delete(id);
     }
 
     @Override
-    public Property addProperty(Agency agency, Property property) {
-        return agencyDatabasePort.addPropertyToAgency(agency,property);
+    public Property addProperty(Long agencyId, Property property) {
+        return agencyDatabasePort.addPropertyToAgency(agencyId, property);
     }
 }

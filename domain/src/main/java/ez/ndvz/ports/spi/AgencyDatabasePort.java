@@ -8,19 +8,11 @@ import java.util.Optional;
 
 public interface AgencyDatabasePort {
     Agency exist(Long id);
-
     Agency find(Agency agency);
     Optional<Agency> findById(Long id);
-
-    //TODO add Page -> Pagination in backend
     Agency create(Agency agency);
-
     Agency update(Long agencyId, Agency agency);
-
     List<Agency> findAllAgencies();
-
-
     void delete(Long id);
-
-    Property addPropertyToAgency(Agency agency, Property property);
+    Property addPropertyToAgency(Long agencyId, Property property);
 }

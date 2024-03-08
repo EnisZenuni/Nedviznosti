@@ -3,10 +3,10 @@ package ez.ndvz.persistance.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,19 +41,15 @@ public class AgencyEntity extends BaseEntity {
     @NotNull
     private String contactNumber;
 
-    @NotEmpty
-    @ElementCollection
-    private List<Double> ratings;
-
     @NotBlank
     @NotNull
     private Date establishmentDate;
 
     @OneToMany
-    private List<UserEntity> agents;
+    private List<UserEntity> agents = new ArrayList<>();
 
-    @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL)
-    private List<PropertyEntity> propertyListings;
+    @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<PropertyEntity> propertyListings = new ArrayList<>();
 
     private Boolean isTrusted;
 }
