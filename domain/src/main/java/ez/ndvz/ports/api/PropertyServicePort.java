@@ -1,12 +1,9 @@
 package ez.ndvz.ports.api;
 
-import ez.ndvz.core.domain.models.Apartment;
-import ez.ndvz.core.domain.models.House;
 import ez.ndvz.core.domain.models.Image;
 import ez.ndvz.core.domain.models.Property;
 
 import java.time.Year;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

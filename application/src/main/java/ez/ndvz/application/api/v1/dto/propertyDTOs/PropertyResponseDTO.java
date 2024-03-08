@@ -10,7 +10,7 @@ import java.util.List;
 @Value
 @Builder
 public class PropertyResponseDTO {
-    String address; //TODO -> Create Value Object
+    String address;
     String description;
     Float squareFootage;
     Integer bedrooms;

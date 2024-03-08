@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,23 +18,17 @@ public class Agency {
 
     private String name;
 
-
     private String email;
 
     private String location;
 
-
     private String contactNumber;
-
-
-    private List<Double> ratings;
-
 
     private Date establishmentDate;
 
     private List<User> agents;
+
     private List<Property> propertyListings;
 
     private Boolean isTrusted;
-
 }
