@@ -14,5 +14,6 @@ public interface AgencyDatabasePort {
     Agency update(Long agencyId, Agency agency);
     List<Agency> findAllAgencies();
     void delete(Long id);
+    Optional<Agency> findAgencyByEmail(String email);
     Property addPropertyToAgency(Long agencyId, Property property);
 }
