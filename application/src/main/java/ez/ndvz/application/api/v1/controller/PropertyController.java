@@ -1,6 +1,5 @@
 package ez.ndvz.application.api.v1.controller;
 
-
 import ez.ndvz.application.api.v1.dto.propertyDTOs.PropertyRequestDTO;
 import ez.ndvz.application.api.v1.dto.propertyDTOs.PropertyResponseDTO;
 import ez.ndvz.application.api.v1.dto.propertyDTOs.PropertyUpdateDTO;
@@ -17,8 +16,6 @@ import java.time.Year;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-//TODO create mapperToDTO to substitute the builder code
 
 @RestController
 @RequestMapping("/api/v1/property")
@@ -72,17 +69,7 @@ public class PropertyController {
     @PostMapping("/create")
     public ResponseEntity<PropertyResponseDTO> createProperty(@RequestBody PropertyRequestDTO propertyRequestDTO) {
         var createdProperty = propertyServicePort.create(propertyHttpMapper.toDomain(propertyRequestDTO));
-        //Encapsulate this with a toDTO function
-        var responseDTO = PropertyResponseDTO.builder()
-                .address(createdProperty.getAddress())
-                .propertyType(createdProperty.getPropertyType())
-                .price(createdProperty.getPrice())
-                .bedrooms(createdProperty.getBedrooms())
-                .description(createdProperty.getDescription())
-                .squareFootage(createdProperty.getSquareFootage())
-                .build();
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(propertyHttpMapper.toDTO(createdProperty));
     }
 
 

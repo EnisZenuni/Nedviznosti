@@ -76,6 +76,13 @@ public class AgencyDatabaseAdapter implements AgencyDatabasePort {
         agencyOptional.ifPresent(agencyRepository::delete);
     }
 
+    @Override
+    public Optional<Agency> findAgencyByEmail(String email) {
+        var agency = agencyRepository.findByEmail(email)
+                .orElseThrow(()-> new IllegalArgumentException("Invalid email or password"));
+        return Optional.of(agencyMapper.toDomain(agency));
+    }
+
     @Transactional
     @Override
     public Property addPropertyToAgency(Long agencyId, Property property) {
