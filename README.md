@@ -1,4 +1,4 @@
-Build based on the Ports and Adapters (Hexagoanal architecture)
+Build based on the Ports and Adapters (Hexagonal architecture)
 - Adhering DDD practices.
 - Keeping the domain module clear and indepedent from any external dependencies/services.
 - Domain module contains the domain business logic
